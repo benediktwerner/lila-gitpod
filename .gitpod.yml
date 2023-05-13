@@ -12,7 +12,7 @@ tasks:
       gp sync-await setup
       cd /workspace/lila
       export COURSIER_CACHE=/workspace/coursier-cache
-      sbt bloopInstall
+      [ -d ".bloop" ] || sbt bloopInstall
       mkdir ~/.bloop && echo '{"javaOptions": [ "-Dfile.encoding=UTF-8" ]}' > ~/.bloop/bloop.json
       gp sync-done lila-sbt
       bloop compile lila
